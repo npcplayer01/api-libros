@@ -16,13 +16,6 @@ const libros = [
     { id: 4, nombre: "Fahrenheit 451", año: 1953 }
 ];
 
-/**
- * RUTA 1: Listar todos los libros y Búsqueda por nombre (Query Params)
- * Método: GET
- * Endpoint: /api/libros
- * Cuándo se invoca: Cuando el cliente hace una petición para ver el catálogo. 
- * Si incluye "?nombre=valor" en la URL, se activa la lógica de filtrado.
- */
 app.get('/api/libros', (req, res) => {
     // Obtenemos el parámetro de consulta 'nombre' si existe
     const { nombre } = req.query;
@@ -45,12 +38,6 @@ app.get('/api/libros', (req, res) => {
     res.json(libros);
 });
 
-/**
- * RUTA 2: Obtener detalles de un libro por ID (Ruta Dinámica)
- * Método: GET
- * Endpoint: /api/libros/:id
- * Cuándo se invoca: Cuando el cliente solicita un recurso específico indicando su número de ID en la URL.
- */
 app.get('/api/libros/:id', (req, res) => {
     // Obtenemos el ID de los parámetros de la ruta y lo convertimos a número
     const libroId = parseInt(req.params.id);
